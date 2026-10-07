@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trattoria Mare e Ulivi – Menu</title>
+<meta name="description" content="Menu della Trattoria Mare e Ulivi: cucina pugliese di mare e di campagna.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫒</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --calce: #f6f7f4;
+    --mare: #1c4d6b;
+    --ulivo: #6f7a45;
+    --inchiostro: #1d2a31;
+    --sabbia: #dfe3da;
+    --serif: "Young Serif", Georgia, "Times New Roman", serif;
+    --sans: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body {
+    margin: 0;
+    background: var(--calce);
+    color: var(--inchiostro);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  header {
+    background: var(--mare);
+    color: var(--calce);
+    padding: 56px 24px 44px;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 9vw, 3.6rem);
+    line-height: 1.05;
+    margin: 0 0 14px;
+  }
+  header p { margin: 0; max-width: 34ch; opacity: .9; }
+  nav {
+    position: sticky; top: 0; z-index: 5;
+    background: var(--calce);
+    border-bottom: 1px solid var(--sabbia);
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  nav .wrap { display: flex; gap: 4px; padding: 0 12px; }
+  nav a {
+    color: var(--mare);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 18px 12px;
+    border-bottom: 3px solid transparent;
+  }
+  nav a:hover, nav a:focus-visible { border-bottom-color: var(--ulivo); outline: none; }
+  main { padding: 8px 24px 40px; }
+  section { padding-top: 36px; }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.9rem;
+    color: var(--mare);
+    margin: 0 0 4px;
+  }
+  .nota { margin: 0 0 18px; color: #55646c; font-size: .95rem; }
+  .piatto { padding: 14px 0; border-top: 1px solid var(--sabbia); }
+  .riga { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+  .nome { font-weight: 600; }
+  .prezzo { font-weight: 600; color: var(--mare); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .desc { margin: 2px 0 0; color: #4b5a62; font-size: .95rem; max-width: 52ch; }
+  .tag {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 8px;
+    border-radius: 99px;
+    background: var(--ulivo);
+    color: #fff;
+    font-size: .75rem;
+    font-weight: 500;
+    vertical-align: middle;
+  }
+  footer {
+    background: var(--inchiostro);
+    color: var(--sabbia);
+    padding: 32px 24px 40px;
+    font-size: .9rem;
+  }
+  footer p { margin: 0 0 6px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Trattoria<br>Mare e Ulivi</h1>
+    <p>Cucina pugliese di mare e di campagna, con prodotti del territorio.</p>
+  </div>
+</header>
+
+<nav aria-label="Sezioni del menu">
+  <div class="wrap">
+    <a href="#antipasti">Antipasti</a>
+    <a href="#primi">Primi</a>
+    <a href="#secondi">Secondi</a>
+    <a href="#dolci">Dolci</a>
+    <a href="#bevande">Bevande</a>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+
+    <section id="antipasti">
+      <h2>Antipasti</h2>
+      <p class="nota">Coperto € 2,00 a persona</p>
+      <div class="piatto"><div class="riga"><span class="nome">Crudo di mare</span><span class="prezzo">€ 18</span></div><p class="desc">Gambero rosso, ricciola e frutti di mare del giorno.</p></div>
+      <div class="piatto"><div class="riga"><span class="nome">Burrata con pomodorini</span><span class="prezzo">€ 9</span></div><p class="desc">Burrata fresca, pomodorini di Torre Guaceto, olio extravergine.</p></div>
+      <div class="piatto"><div class="riga"><span class="nome">Polpo alla pignata<span class="tag">Tipico</span></span><span class="prezzo">€ 12</span></div><p class="desc">Polpo cotto lentamente con cipolla, patate e alloro.</p></div>
+      <div class="piatto"><div class="riga"><span class="nome">Panzerotti fritti</span><span class="prezzo">€ 7</span></div><p class="desc">Tre panzerotti con pomodoro e mozzarella.</p></div>
+    </section>
+
+    <section id="primi">
+      <h2>Primi</h2>
+      <p class="nota">Pasta fresca fatta in casa ogni mattina</p>
+      <div class="piatto"><div class="riga"><span class="nome">Orecchiette alle cime di rapa<span class="tag">Tipico</span></span><span class="prezzo">€ 11</span></div><p class="desc">Con acciughe, aglio, peperoncino e pangrattato tostato.</p></div>
+      <div class="piatto"><div class="riga"><span class="nome">Tiella riso, patate e cozze</span><span class="prezzo">€ 12</span></div><p class="desc">La ricetta barese, cotta al forno.</p></div>
+      <div class="piatto"><div class="riga"><span class="nome">Spaghetti ai ricci di mare</span><span class="prezzo">€ 16</span></div><p class="desc">Disponibili solo in stagione.</p></div>
+      <div class="piatto"><div class="riga"><span class="nome">Cavatelli con ragù di braciole</span><span class="prezzo">€ 12</span></div><p class="desc">Ragù di manzo cotto per quattro ore.</p></div>
+    </section>
+
+    <section id="secondi">
+      <h2>Secondi</h2>
+      <p class="nota">Il pesce è quello che arriva dal mercato del giorno</p>
+      <div class="piatto"><div class="riga"><span class="nome">Frittura di paranza</span><span class="prezzo">€ 15</span></div><p class="desc">Triglie, calamari e gamberi, fritti al momento.</p></div>
+      <div class="piatto"><div class="riga"><span class="nome">Branzino al forno</span><span class="prezzo">€ 18</span></div><p class="desc">Con patate, olive e capperi.</p></div>
+      <div class="piatto"><div class="riga"><span class="nome">Bombette pugliesi</span><span class="prezzo">€ 13</span></div><p class="desc">Involtini di capocollo e caciocavallo alla brace.</p></div>
+      <div class="piatto"><div class="riga"><span class="nome">Parmigiana di melanzane<span class="tag">Vegetariano</span></span><span class="prezzo">€ 10</span></div><p class="desc">Melanzane, pomodoro, basilico e scamorza.</p></div>
+    </section>
+
+    <section id="dolci">
+      <h2>Dolci</h2>
+      <div class="piatto"><div class="riga"><span class="nome">Pasticciotto leccese</span><span class="prezzo">€ 4</span></div><p class="desc">Frolla con crema pasticcera, servito tiepido.</p></div>
+      <div class="piatto"><div class="riga"><span class="nome">Cartellate al vincotto</span><span class="prezzo">€ 5</span></div><p class="desc">Dolce natalizio, disponibile da novembre a gennaio.</p></div>
+      <div class="piatto"><div class="riga"><span class="nome">Sporcamuss</span><span class="prezzo">€ 4</span></div><p class="desc">Sfoglia con crema e zucchero a velo.</p></div>
+    </section>
+
+    <section id="bevande">
+      <h2>Bevande</h2>
+      <div class="piatto"><div class="riga"><span class="nome">Acqua naturale o frizzante (75 cl)</span><span class="prezzo">€ 3</span></div></div>
+      <div class="piatto"><div class="riga"><span class="nome">Vino della casa (bicchiere)</span><span class="prezzo">€ 4</span></div><p class="desc">Primitivo o Negroamaro.</p></div>
+      <div class="piatto"><div class="riga"><span class="nome">Birra artigianale pugliese (33 cl)</span><span class="prezzo">€ 5</span></div></div>
+      <div class="piatto"><div class="riga"><span class="nome">Caffè</span><span class="prezzo">€ 1,50</span></div></div>
+      <div class="piatto"><div class="riga"><span class="nome">Amaro o limoncello</span><span class="prezzo">€ 4</span></div></div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Per allergie e intolleranze chiedi al personale di sala.</p>
+    <p>Via Esempio 12, Bari · Tel. 080 000 0000</p>
+    <p>Aperti tutti i giorni, 12:30–15:00 e 19:30–23:00</p>
+  </div>
+</footer>
+
+</body>
+</html>
