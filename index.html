@@ -2,174 +2,303 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Trattoria Mare e Ulivi – Menu</title>
-<meta name="description" content="Menu della Trattoria Mare e Ulivi: cucina pugliese di mare e di campagna.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫒</text></svg>">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Osteria Piazzetta dell'Erbe – Menu e carta dei vini</title>
+<meta name="description" content="Menu e carta dei vini dell'Osteria Piazzetta dell'Erbe: vino, griglia, cucina.">
+<meta name="theme-color" content="#2b2b2d">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
   :root {
-    --calce: #f6f7f4;
-    --mare: #1c4d6b;
-    --ulivo: #6f7a45;
-    --inchiostro: #1d2a31;
-    --sabbia: #dfe3da;
-    --serif: "Young Serif", Georgia, "Times New Roman", serif;
-    --sans: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --bg: #2b2b2d;
+    --bg2: #343436;
+    --testo: #ece6df;
+    --tenue: #a9a39c;
+    --rame: #cf8f6e;
+    --fiamma: #b01820;
+    --linea: rgba(207,143,110,.28);
+    --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans: "Jost", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --script: "Pinyon Script", "Brush Script MT", cursive;
+  }
+  body.vini {
+    --bg: #5c2a3e;
+    --bg2: #67324a;
+    --testo: #f6ebee;
+    --tenue: #d3b3bd;
+    --rame: #ff8fb4;
+    --linea: rgba(255,143,180,.3);
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 118px; }
   body {
     margin: 0;
-    background: var(--calce);
-    color: var(--inchiostro);
+    background: var(--bg);
+    color: var(--testo);
     font-family: var(--sans);
+    font-weight: 300;
     font-size: 17px;
     line-height: 1.5;
+    transition: background .5s, color .5s;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
+
+  /* Intestazione */
   header {
-    background: var(--mare);
-    color: var(--calce);
-    padding: 56px 24px 44px;
+    text-align: center;
+    padding: calc(56px + env(safe-area-inset-top, 0px)) 24px 40px;
+    background: radial-gradient(ellipse at 50% 0%, var(--bg2), var(--bg) 70%);
   }
-  .wrap { max-width: 680px; margin: 0 auto; }
+  .glass { width: 92px; height: auto; display: block; margin: 0 auto 22px; }
+  .glass .calice { fill: none; stroke: var(--testo); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; opacity: .85; }
+  .glass .fiamma { fill: var(--fiamma); transform-origin: 50px 62px; animation: vibra 3.2s ease-in-out infinite; }
+  body.vini .glass .fiamma { fill: #ef1c2b; }
+  @keyframes vibra { 0%,100% { transform: scale(1) rotate(0); } 50% { transform: scale(1.04, 1.07) rotate(-1.5deg); } }
+  .osteria {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    max-width: 380px; margin: 0 auto 2px;
+    font-family: var(--serif); font-size: 1.35rem; color: var(--rame); letter-spacing: .04em;
+  }
+  .osteria::before, .osteria::after { content: ""; flex: 1; height: 1px; background: var(--rame); opacity: .6; }
   h1 {
+    margin: 0;
     font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(2.4rem, 9vw, 3.6rem);
-    line-height: 1.05;
-    margin: 0 0 14px;
-  }
-  header p { margin: 0; max-width: 34ch; opacity: .9; }
-  nav {
-    position: sticky; top: 0; z-index: 5;
-    background: var(--calce);
-    border-bottom: 1px solid var(--sabbia);
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  nav .wrap { display: flex; gap: 4px; padding: 0 12px; }
-  nav a {
-    color: var(--mare);
-    text-decoration: none;
     font-weight: 600;
-    padding: 18px 12px;
-    border-bottom: 3px solid transparent;
+    font-size: clamp(2.3rem, 10vw, 3.6rem);
+    line-height: 1.1;
+    color: var(--rame);
+    letter-spacing: .02em;
   }
-  nav a:hover, nav a:focus-visible { border-bottom-color: var(--ulivo); outline: none; }
-  main { padding: 8px 24px 40px; }
-  section { padding-top: 36px; }
+  h1 em { font-family: var(--script); font-style: normal; font-weight: 400; font-size: 1.15em; margin-left: .12em; letter-spacing: 0; }
+  .motto { margin: 14px 0 0; color: var(--rame); font-weight: 500; font-size: .85rem; letter-spacing: .22em; text-transform: uppercase; }
+
+  /* Navigazione */
+  .barra {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--linea);
+    padding-top: env(safe-area-inset-top, 0px);
+    transition: background .5s;
+  }
+  .schede { display: flex; max-width: 720px; margin: 0 auto; }
+  .schede button {
+    flex: 1; background: none; border: 0; border-bottom: 3px solid transparent;
+    color: var(--tenue); font: 500 1.05rem var(--serif); letter-spacing: .06em;
+    padding: 14px 8px 11px; cursor: pointer; transition: color .2s, border-color .2s;
+  }
+  .schede button[aria-selected="true"] { color: var(--rame); border-bottom-color: var(--rame); }
+  .schede button:focus-visible, .pill:focus-visible { outline: 2px solid var(--rame); outline-offset: -3px; }
+  .sezioni { display: flex; gap: 8px; overflow-x: auto; padding: 4px 16px 12px; max-width: 720px; margin: 0 auto; scrollbar-width: none; }
+  .sezioni::-webkit-scrollbar { display: none; }
+  .pill {
+    flex: none; text-decoration: none; color: var(--testo);
+    border: 1px solid var(--linea); border-radius: 99px;
+    padding: 5px 14px; font-size: .88rem; font-weight: 400;
+  }
+  .pill:hover { border-color: var(--rame); color: var(--rame); }
+
+  /* Contenuto */
+  main { max-width: 720px; margin: 0 auto; padding: 8px 22px 56px; }
+  section { padding-top: 40px; }
   h2 {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: 1.9rem;
-    color: var(--mare);
-    margin: 0 0 4px;
+    font-family: var(--serif); font-weight: 600; font-size: 2rem; line-height: 1.15;
+    color: var(--rame); margin: 0 0 18px; text-align: center;
   }
-  .nota { margin: 0 0 18px; color: #55646c; font-size: .95rem; }
-  .piatto { padding: 14px 0; border-top: 1px solid var(--sabbia); }
-  .riga { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
-  .nome { font-weight: 600; }
-  .prezzo { font-weight: 600; color: var(--mare); white-space: nowrap; font-variant-numeric: tabular-nums; }
-  .desc { margin: 2px 0 0; color: #4b5a62; font-size: .95rem; max-width: 52ch; }
-  .tag {
-    display: inline-block;
-    margin-left: 6px;
-    padding: 1px 8px;
-    border-radius: 99px;
-    background: var(--ulivo);
-    color: #fff;
-    font-size: .75rem;
-    font-weight: 500;
-    vertical-align: middle;
+  .riga { display: flex; align-items: baseline; gap: 10px; padding: 7px 0; }
+  .nome { font-weight: 400; }
+  .qta { color: var(--tenue); font-size: .82rem; white-space: nowrap; }
+  .punti { flex: 1; min-width: 12px; border-bottom: 1px dotted var(--linea); transform: translateY(-4px); }
+  .prezzo { font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .nota { margin: -3px 0 6px; color: var(--tenue); font-size: .9rem; }
+
+  .vino { display: grid; grid-template-columns: 1fr auto auto; gap: 4px 16px; align-items: baseline; padding: 8px 0; border-top: 1px solid var(--linea); }
+  .produttore + .vino { border-top: 0; }
+  .vino .nome { font-weight: 500; }
+  .vino .desc { grid-column: 1; color: var(--tenue); font-size: .88rem; }
+  .vino .grado { color: var(--tenue); font-size: .85rem; grid-column: 2; grid-row: 1; }
+  .vino .prezzo { grid-column: 3; grid-row: 1; min-width: 2.6em; text-align: right; }
+  .produttore { margin: 24px 0 2px; font-family: var(--serif); font-weight: 600; font-size: 1.1rem; letter-spacing: .08em; color: var(--rame); }
+
+  .pannello[hidden] { display: none; }
+
+  footer { text-align: center; padding: 34px 24px 48px; border-top: 1px solid var(--linea); color: var(--tenue); font-size: .92rem; }
+  footer strong { display: block; font: 600 1.2rem var(--serif); color: var(--rame); margin-bottom: 6px; letter-spacing: .04em; }
+  footer p { margin: 0 auto 6px; max-width: 42ch; }
+
+  @media (min-width: 640px) { body { font-size: 18px; } }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .glass .fiamma { animation: none; }
+    body { transition: none; }
   }
-  footer {
-    background: var(--inchiostro);
-    color: var(--sabbia);
-    padding: 32px 24px 40px;
-    font-size: .9rem;
-  }
-  footer p { margin: 0 0 6px; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap">
-    <h1>Trattoria<br>Mare e Ulivi</h1>
-    <p>Cucina pugliese di mare e di campagna, con prodotti del territorio.</p>
-  </div>
+  <svg class="glass" viewBox="0 0 100 140" role="img" aria-label="Calice con fiamma">
+    <path class="calice" d="M20 22 L28 22 M72 22 L80 22 M18 24 C12 50 12 62 18 74 C26 92 40 96 50 96 C60 96 74 92 82 74 C88 62 88 50 82 24 M50 96 L50 126 M34 128 L66 128"/>
+    <path class="fiamma" d="M50 14 C58 22 64 32 58 44 C66 50 70 58 66 68 C62 78 54 84 46 84 C36 84 30 76 32 66 C34 58 40 54 42 46 C42 36 46 28 50 14 Z M50 56 C56 62 58 70 52 76 C46 74 44 68 50 56 Z" fill-rule="evenodd"/>
+  </svg>
+  <div class="osteria">Osteria</div>
+  <h1>PIAZZETTA<em>dell'Erbe</em></h1>
+  <p class="motto">Vino · Griglia · Cucina</p>
 </header>
 
-<nav aria-label="Sezioni del menu">
-  <div class="wrap">
-    <a href="#antipasti">Antipasti</a>
-    <a href="#primi">Primi</a>
-    <a href="#secondi">Secondi</a>
-    <a href="#dolci">Dolci</a>
-    <a href="#bevande">Bevande</a>
+<div class="barra">
+  <div class="schede" role="tablist" aria-label="Menu">
+    <button role="tab" id="t-cucina" aria-selected="true" aria-controls="cucina">Cucina</button>
+    <button role="tab" id="t-vini" aria-selected="false" aria-controls="vini">Carta dei vini</button>
   </div>
-</nav>
+  <nav class="sezioni" id="pills" aria-label="Sezioni"></nav>
+</div>
 
 <main>
-  <div class="wrap">
-
-    <section id="antipasti">
-      <h2>Antipasti</h2>
-      <p class="nota">Coperto € 2,00 a persona</p>
-      <div class="piatto"><div class="riga"><span class="nome">Crudo di mare</span><span class="prezzo">€ 18</span></div><p class="desc">Gambero rosso, ricciola e frutti di mare del giorno.</p></div>
-      <div class="piatto"><div class="riga"><span class="nome">Burrata con pomodorini</span><span class="prezzo">€ 9</span></div><p class="desc">Burrata fresca, pomodorini di Torre Guaceto, olio extravergine.</p></div>
-      <div class="piatto"><div class="riga"><span class="nome">Polpo alla pignata<span class="tag">Tipico</span></span><span class="prezzo">€ 12</span></div><p class="desc">Polpo cotto lentamente con cipolla, patate e alloro.</p></div>
-      <div class="piatto"><div class="riga"><span class="nome">Panzerotti fritti</span><span class="prezzo">€ 7</span></div><p class="desc">Tre panzerotti con pomodoro e mozzarella.</p></div>
-    </section>
-
-    <section id="primi">
-      <h2>Primi</h2>
-      <p class="nota">Pasta fresca fatta in casa ogni mattina</p>
-      <div class="piatto"><div class="riga"><span class="nome">Orecchiette alle cime di rapa<span class="tag">Tipico</span></span><span class="prezzo">€ 11</span></div><p class="desc">Con acciughe, aglio, peperoncino e pangrattato tostato.</p></div>
-      <div class="piatto"><div class="riga"><span class="nome">Tiella riso, patate e cozze</span><span class="prezzo">€ 12</span></div><p class="desc">La ricetta barese, cotta al forno.</p></div>
-      <div class="piatto"><div class="riga"><span class="nome">Spaghetti ai ricci di mare</span><span class="prezzo">€ 16</span></div><p class="desc">Disponibili solo in stagione.</p></div>
-      <div class="piatto"><div class="riga"><span class="nome">Cavatelli con ragù di braciole</span><span class="prezzo">€ 12</span></div><p class="desc">Ragù di manzo cotto per quattro ore.</p></div>
-    </section>
-
-    <section id="secondi">
-      <h2>Secondi</h2>
-      <p class="nota">Il pesce è quello che arriva dal mercato del giorno</p>
-      <div class="piatto"><div class="riga"><span class="nome">Frittura di paranza</span><span class="prezzo">€ 15</span></div><p class="desc">Triglie, calamari e gamberi, fritti al momento.</p></div>
-      <div class="piatto"><div class="riga"><span class="nome">Branzino al forno</span><span class="prezzo">€ 18</span></div><p class="desc">Con patate, olive e capperi.</p></div>
-      <div class="piatto"><div class="riga"><span class="nome">Bombette pugliesi</span><span class="prezzo">€ 13</span></div><p class="desc">Involtini di capocollo e caciocavallo alla brace.</p></div>
-      <div class="piatto"><div class="riga"><span class="nome">Parmigiana di melanzane<span class="tag">Vegetariano</span></span><span class="prezzo">€ 10</span></div><p class="desc">Melanzane, pomodoro, basilico e scamorza.</p></div>
-    </section>
-
-    <section id="dolci">
-      <h2>Dolci</h2>
-      <div class="piatto"><div class="riga"><span class="nome">Pasticciotto leccese</span><span class="prezzo">€ 4</span></div><p class="desc">Frolla con crema pasticcera, servito tiepido.</p></div>
-      <div class="piatto"><div class="riga"><span class="nome">Cartellate al vincotto</span><span class="prezzo">€ 5</span></div><p class="desc">Dolce natalizio, disponibile da novembre a gennaio.</p></div>
-      <div class="piatto"><div class="riga"><span class="nome">Sporcamuss</span><span class="prezzo">€ 4</span></div><p class="desc">Sfoglia con crema e zucchero a velo.</p></div>
-    </section>
-
-    <section id="bevande">
-      <h2>Bevande</h2>
-      <div class="piatto"><div class="riga"><span class="nome">Acqua naturale o frizzante (75 cl)</span><span class="prezzo">€ 3</span></div></div>
-      <div class="piatto"><div class="riga"><span class="nome">Vino della casa (bicchiere)</span><span class="prezzo">€ 4</span></div><p class="desc">Primitivo o Negroamaro.</p></div>
-      <div class="piatto"><div class="riga"><span class="nome">Birra artigianale pugliese (33 cl)</span><span class="prezzo">€ 5</span></div></div>
-      <div class="piatto"><div class="riga"><span class="nome">Caffè</span><span class="prezzo">€ 1,50</span></div></div>
-      <div class="piatto"><div class="riga"><span class="nome">Amaro o limoncello</span><span class="prezzo">€ 4</span></div></div>
-    </section>
-
-  </div>
+  <div class="pannello" id="cucina" role="tabpanel" aria-labelledby="t-cucina"></div>
+  <div class="pannello" id="vini" role="tabpanel" aria-labelledby="t-vini" hidden></div>
 </main>
 
 <footer>
-  <div class="wrap">
-    <p>Per allergie e intolleranze chiedi al personale di sala.</p>
-    <p>Via Esempio 12, Bari · Tel. 080 000 0000</p>
-    <p>Aperti tutti i giorni, 12:30–15:00 e 19:30–23:00</p>
-  </div>
+  <strong>Coperto € 2</strong>
+  <p>Per eventuali allergie o intolleranze chiedi al personale il libro degli allergeni.</p>
 </footer>
 
+<script>
+// [nome, quantità, prezzo, nota]
+const CUCINA = [
+  ["Per cominciare", [
+    ["Tagliere di salumi della Valle d'Itria e formaggi", "", "20"],
+    ["Tagliere di culatello di Martina Franca e burratina", "", "15"],
+    ["Tartare di fassona", "", "15"]]],
+  ["I fritti", [
+    ["Polpette", "8 pz", "8"],
+    ["Panzerotti di patate", "6 pz", "6"],
+    ["Crocchette pulled pork", "3 pz", "6"],
+    ["Polpette di melanzane", "5 pz", "8"],
+    ["Pollo croccante", "5 pz", "10"],
+    ["Patatine fritte", "", "6"],
+    ["Pettole", "", "6"]]],
+  ["Dalla cucina", [
+    ["Parmigiana di melanzane", "", "12"],
+    ["Carne di cavallo alla pignata", "", "12"],
+    ["Lasagnetta al ragù", "", "12"],
+    ["Polpette al sugo", "6 pz", "8"],
+    ["Pitta di patate salentina", "", "7"],
+    ["Tagliata di entrecôte", "300 g", "20", "Con contorno di pomodorini e rucola"],
+    ["Salsiccia", "", "10"],
+    ["Bombette", "5 pz", "12"],
+    ["Guancia di vitello al Negroamaro", "", "18", "Con purè di patate"],
+    ["Ribs di maialino in salsa barbecue", "", "15", "Con patatine fritte"]]],
+  ["I contorni", [
+    ["Insalata mista", "", "4"],
+    ["Verdure grigliate", "", "6"]]],
+  ["I dolci", [
+    ["Tiramisù", "", "6"],
+    ["Cheesecake", "", "6"],
+    ["Spumone artigianale", "", "6"],
+    ["Sorbetto al cucchiaio", "", "8", "Senza glutine, senza lattosio"]]],
+  ["Le bevande", [
+    ["Acqua", "0,75 l", "2,5"],
+    ["Bevande in vetro", "Coca, Coca 0, Fanta…", "3"]]],
+  ["Le birre", [
+    ["Bionda alla spina, piccola", "25 cl", "3,5"],
+    ["Bionda alla spina, media", "50 cl", "6"],
+    ["Deliurium Nocturnum", "33 cl", "6"],
+    ["Noam Lager", "34 cl", "6"],
+    ["L'Aura Birra, bionda salentina", "33 cl", "6"]]],
+  ["Distillati", [
+    ["Jägermeister", "", "4"],
+    ["Amaro del Capo", "", "4"],
+    ["Jefferson", "", "5"],
+    ["Fernet Branca", "", "4"],
+    ["Limoncello", "", "4"],
+    ["Grappa barricata", "", "4"]]]
+];
+
+// Produttore → [vino, descrizione, gradazione, prezzo]
+const VINI = [
+  ["Rossi", [
+    ["San Marzano", [["Talò","Primitivo Manduria DOP","14","20"],["Talò","Malvasia Nera IGP Salento","13,5","20"],["Talò","Salice Salentino DOP","13,5","20"],["Talò","Negroamaro IGP Salento","13,5","20"],["Sessantanni","Primitivo Manduria DOP","14,5","30"],["F","Negroamaro IGP","14,5","30"]]],
+    ["Paolo Leo", [["Orfeo","Negroamaro IGP Puglia","14,5","25"],["La Carta","Negroamaro DOC Riserva","13,5","20"]]],
+    ["Tenute Viglione (bio)", [["Morso Rosso","Susumaniello IGP Puglia Bio","14,5","25"],["Sellato","Primitivo DOP Gioia del Colle Bio","14","25"],["Marpione","Primitivo DOP Gioia del Colle Bio","14,5","35"]]],
+    ["Menhir Marangelli", [["Vega","Terra d'Otranto DOC Riserva","15","30"],["Filo","Negroamaro Terra d'Otranto DOC","14","30"]]],
+    ["Guy Martin", [["Primissimo","Negroamaro IGP Bio","12","20"]]],
+    ["Marco Ludovico", [["Trabaco","Sangiovese","16","35"],["Primitivo","","15","25"]]],
+    ["Masseria Ludovico", [["PrinciPale","Primitivo","15","25"]]],
+    ["Severino Garofano", [["Le Braci","Negroamaro IGT Salento","15","80"]]],
+    ["Vallone", [["Graticciaia","Negroamaro IGP","14,5","90"]]],
+    ["Schola Sarmenti", [["Nerìo","Negroamaro, Malvasia DOC","14","20"],["Cubardi","Primitivo IGT Salento","15","20"]]],
+    ["Candido", [["Cappello di Prete","Rosso IGT Salento","14","20"]]],
+    ["Il nostro vino", [["Piazzetta dell'Erbe","Rosso Negroamaro","14","10"]]]]],
+  ["Rosati", [
+    ["San Marzano", [["Tramari Rosé","Primitivo IGP Salento","12,5","20"],["Sessantanni Rosé","IGP","13,5","30"]]],
+    ["Paolo Leo", [["Rosamora","Malvasia Rosé IGP Salento","12,5","20"]]],
+    ["Tenute Viglione (bio)", [["Morso Rosa","Susumaniello IGP Puglia Bio","13","25"]]],
+    ["Menhir Marangelli", [["Pietra Rosa","Primitivo, Susumaniello IGT Salento","12,5","20"]]],
+    ["Marco Ludovico", [["Petruscio","Primitivo Rosato","14","25"]]],
+    ["Schola Sarmenti", [["Opra","Negroamaro DOC","12,5","20"]]],
+    ["Il nostro vino", [["Piazzetta dell'Erbe","Rosato Primitivo IGT Salento","12","10"]]]]],
+  ["Bianchi", [
+    ["Paolo Leo", [["Casino Cucci","Sauvignon Blanc","12","15"]]],
+    ["San Marzano", [["Timo","Vermentino del Salento","12,5","15"]]],
+    ["Domaine Neumeyer", [["Riesling Hospices","Riesling Renano","12,5","35"]]],
+    ["Domaine Louis Moreau", [["Chablis","Chardonnay 100%","12,5","40"]]],
+    ["Ceretto", [["Blangé","Arneis DOCG Piemonte","12,5","30"]]],
+    ["Il nostro vino", [["Piazzetta dell'Erbe","Bianco Chardonnay","12,5","10"]]]]],
+  ["Bollicine", [
+    ["Le Marchesine", [["Audens DOCG","Pinot Bianco, Pinot Nero · Franciacorta dosaggio zero","12,5","35"]]],
+    ["Château de Bligny", [["Grand Réserve Brut","Chardonnay, Pinot Nero · Champagne","12,5","35"]]]]]
+];
+
+const slug = s => s.toLowerCase().replace(/[^a-z]+/g, "-");
+const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+
+function renderCucina() {
+  return CUCINA.map(([titolo, voci]) =>
+    `<section id="${slug(titolo)}"><h2>${esc(titolo)}</h2>` +
+    voci.map(([n, q, p, nota]) =>
+      `<div class="riga"><span class="nome">${esc(n)}</span>${q ? `<span class="qta">${esc(q)}</span>` : ""}<span class="punti"></span><span class="prezzo">${p} €</span></div>` +
+      (nota ? `<p class="nota">${esc(nota)}</p>` : "")
+    ).join("") + `</section>`
+  ).join("");
+}
+
+function renderVini() {
+  return VINI.map(([titolo, produttori]) =>
+    `<section id="${slug(titolo)}"><h2>${esc(titolo)}</h2>` +
+    produttori.map(([prod, vini]) =>
+      `<h3 class="produttore">${esc(prod)}</h3>` +
+      vini.map(([n, d, g, p]) =>
+        `<div class="vino"><span class="nome">${esc(n)}</span><span class="grado">${g}%</span><span class="prezzo">${p} €</span>${d ? `<span class="desc">${esc(d)}</span>` : ""}</div>`
+      ).join("")
+    ).join("") + `</section>`
+  ).join("");
+}
+
+document.getElementById("cucina").innerHTML = renderCucina();
+document.getElementById("vini").innerHTML = renderVini();
+
+const pills = document.getElementById("pills");
+const schede = { cucina: CUCINA.map(s => s[0]), vini: VINI.map(s => s[0]) };
+
+function mostra(scheda) {
+  const vini = scheda === "vini";
+  document.body.classList.toggle("vini", vini);
+  document.getElementById("cucina").hidden = vini;
+  document.getElementById("vini").hidden = !vini;
+  document.getElementById("t-cucina").setAttribute("aria-selected", String(!vini));
+  document.getElementById("t-vini").setAttribute("aria-selected", String(vini));
+  pills.innerHTML = schede[scheda].map(t => `<a class="pill" href="#${slug(t)}">${esc(t)}</a>`).join("");
+  pills.scrollLeft = 0;
+  try { history.replaceState(null, "", vini ? "#vini" : "#"); } catch (e) {}
+  window.scrollTo({ top: 0 });
+}
+
+document.getElementById("t-cucina").addEventListener("click", () => mostra("cucina"));
+document.getElementById("t-vini").addEventListener("click", () => mostra("vini"));
+mostra(location.hash === "#vini" ? "vini" : "cucina");
+</script>
 </body>
 </html>
